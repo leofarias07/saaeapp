@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Informar Vazamentos
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page3">
+  <form id="informarVazamentos-form3" (ngSubmit)="salvarUsuario()">
+    <ion-item id="informarVazamentos-input3">
+      <ion-label stacked>
+        Endereço:
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="usuarioCadastro.endereco" name="endereco" placeholder=""></ion-input>
+    </ion-item>
+  </form>
+  <form id="informarVazamentos-form4">
+    <ion-item id="informarVazamentos-input4">
+      <ion-label stacked>
+        Descrição:
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="usuarioCadastro.descricao" name="descricao" placeholder=""></ion-input>
+    </ion-item>
+  </form>
+  <form id="informarVazamentos-form5">
+    <ion-item id="informarVazamentos-input7">
+      <ion-label>
+        Contato:
+      </ion-label>
+      <ion-input type="text" [(ngModel)]="usuarioCadastro.contato" name="contato" placeholder=""></ion-input>
+    </ion-item>
+  </form>
+  <button id="informarVazamentos-button2" ion-button type="submit" color="positive" block>
+    Enviar
+  </button>
+</ion-content>
+
+
+

@@ -1,4 +1,4 @@
-// http://ionicframework.com/docs/theming/
+// http://ionicframework.com/docs/v2/theming/
 
 
 // App Global Sass
@@ -14,3 +14,10 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+ion-label.label.label-ios {
+    font-size: 16px;
+    //font-weight: bold;
+    color: #0275d8;
+}
+
