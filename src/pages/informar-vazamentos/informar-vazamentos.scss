@@ -1,12 +1,23 @@
 page-informar-vazamentos {
-    .ion-input.input.input-ios {
-        font-size: 20px;
+  
+
+    ion-content {
+        @include linear-gradient(left,$green-and-blue);
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+      }
+
+      item-ios {
+        padding-left: 16px;
+        padding-left: 16px;
+        border-radius: 0;
+        position: relative;
+        font-size: 1.7rem;
+        color: none !important;
+        background-color:none !important;
+        -webkit-transition: background-color 200ms linear;
+        transition: background-color 200ms linear;
     }
     
-    .span.button-inner {
-    }
-    
-    .button#informarVazamentos-button2 {
-        margin-top: 40px;
-    }
 }

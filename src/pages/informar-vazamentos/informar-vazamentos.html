@@ -9,33 +9,22 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page3">
-  <form id="informarVazamentos-form3" (ngSubmit)="salvarUsuario()">
-    <ion-item id="informarVazamentos-input3">
-      <ion-label stacked>
-        Endereço:
-      </ion-label>
-      <ion-input type="text" [(ngModel)]="usuarioCadastro.endereco" name="endereco" placeholder=""></ion-input>
+  
+  <form (ngSubmit)="salvarUsuario()">
+    <ion-item class="none">
+      <ion-label floating>Endereço</ion-label>
+      <ion-input type="text" [(ngModel)]="usuarioCadastro.endereco" name="endereco"></ion-input>
     </ion-item>
-  </form>
-  <form id="informarVazamentos-form4">
-    <ion-item id="informarVazamentos-input4">
-      <ion-label stacked>
-        Descrição:
-      </ion-label>
-      <ion-input type="text" [(ngModel)]="usuarioCadastro.descricao" name="descricao" placeholder=""></ion-input>
+    <ion-item>
+      <ion-label floating>Descrição</ion-label>
+      <ion-input [(ngModel)]="usuarioCadastro.descricao" name="descricao"></ion-input>
     </ion-item>
-  </form>
-  <form id="informarVazamentos-form5">
-    <ion-item id="informarVazamentos-input7">
-      <ion-label>
-        Contato:
-      </ion-label>
-      <ion-input type="text" [(ngModel)]="usuarioCadastro.contato" name="contato" placeholder=""></ion-input>
+    <ion-item>
+      <ion-label floating>Contato</ion-label>
+      <ion-input [(ngModel)]="usuarioCadastro.contato" name="contato"></ion-input>
     </ion-item>
+    <button ion-button block color="secondary" type="submit" block>Enviar</button>
   </form>
-  <button id="informarVazamentos-button2" ion-button type="submit" color="positive" block>
-    Enviar
-  </button>
 </ion-content>
 
 

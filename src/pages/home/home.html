@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar transparent>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -8,19 +8,16 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page1">
-  <ion-card id="home-card21">
-    <ion-item>
-      <p>Titulo da Postgem</p>
-    </ion-item>
-  
-    <img src="assets/img/AgpBQuStRMCu85XcpIrZ_Canaisdecomunicao-SAAE.jpeg">
+
+<ion-content>
+  <ion-card *ngFor="let post of posts | async" (click)="openPost(post)" tappable>
+    <img [src]="post.media_url | async">
   
     <ion-card-content>
-      <p></p>
+      <ion-card-title>
+        {{ post.title }}
+      </ion-card-title>
+      <div [innerHTML]="post.excerpt"></div>
     </ion-card-content>
-  
   </ion-card>
-
-  
 </ion-content>

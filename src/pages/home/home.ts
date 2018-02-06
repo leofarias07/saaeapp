@@ -1,28 +1,39 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-
-import { NavParams } from 'ionic-angular/navigation/nav-params';
+import { NavController, LoadingController, Loading } from 'ionic-angular';
+import { WpProvider, Post } from '../../providers/wp/wp';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html',
-  //providers:[FeedNProvider]
+  templateUrl: 'home.html'
 })
 export class HomePage {
-  /*public objeto_feed = {
-      titulo:"Lavagem ETA VR",
-      data:"Janeiro 5, 2018",
-      contexto:"Lavagem etaVR"
+  loader: Loading;
+  posts: Observable<Post[]>;
 
+  constructor(public navCtrl: NavController, public wpProvider: WpProvider, public loadingCtrl: LoadingController) {
+    this.presentLoading();
+    this.posts = this.wpProvider.getPosts();
+    this.posts.subscribe(_ => {
+      this.loader.dismiss();
+    });
   }
-  constructor(
-    public navCtrl: NavController,
-    public navParams: NavParams,
-    private feedProvider: FeedNProvider
 
-  ) {
 
-  }*/
 
-  
+  getUserName(id: number) {
+    return this.wpProvider.getUserName(id);
+  }
+
+  openPost(post: Post) {
+    this.navCtrl.push('PostPage', {post: post});
+  }
+
+  presentLoading() {
+    this.loader = this.loadingCtrl.create({
+      content: "Loading..."
+    });
+    this.loader.present();
+  }
 }
+

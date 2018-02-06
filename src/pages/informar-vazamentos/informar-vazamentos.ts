@@ -1,6 +1,8 @@
-import { UsuarioProvider } from './../../providers/usuario/usuario';
+
 import { Component } from '@angular/core';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
+import { UsuarioProvider } from '../../providers/usuario/usuario';
+import { Observable } from 'rxjs/Observable';
 
 
 

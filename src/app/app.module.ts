@@ -15,7 +15,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UsuarioProvider } from '../providers/usuario/usuario';
+import { WpProvider } from '../providers/wp/wp';
+import { Http, HttpModule } from '@angular/http';
+import { WpApiModule, WpApiLoader,WpApiStaticLoader } from 'wp-api-angular';
 
+
+
+
+export function WpApiLoaderFactory(http) {
+  return new WpApiStaticLoader(http, 'http://saae.caxias.ma.gov.br//wp-json/');
+}
 
 @NgModule({
   declarations: [
@@ -29,6 +38,13 @@ import { UsuarioProvider } from '../providers/usuario/usuario';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    HttpModule,
+    WpApiModule.forRoot({
+  provide: WpApiLoader,
+  useFactory: (WpApiLoaderFactory),
+  deps: [Http]
+}),
    
     IonicModule.forRoot(MyApp)
   ],
@@ -45,7 +61,9 @@ import { UsuarioProvider } from '../providers/usuario/usuario';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},UsuarioProvider
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    WpProvider,
+    UsuarioProvider
    
   ]
 })
